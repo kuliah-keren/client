@@ -29,11 +29,10 @@ const app = new Vue({
 
                     console.log('SUCCESS!!');
                     app.notif.succ = 'uploaded success'
-                    // alert('Uploaded')
+                
                     this.getAllImages()
                 })
                 .catch(function() {
-                    // alert('Fail to upload')
                     app.notif.fail = 'Fail upload'
                 });
         },

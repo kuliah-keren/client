@@ -1,4 +1,4 @@
-new Vue({
+const app = new Vue({
     el: "#app",
     data: {
         file: '',
@@ -6,7 +6,11 @@ new Vue({
         host: 'http://localhost:3000',
         allImages: [],
         resultConvert: [],
-        link: ''
+        link: '',
+        notif: {
+            succ: '',
+            fail: ''
+        },
     },
     created() {
         this.getAllImages()
@@ -21,14 +25,15 @@ new Vue({
             formData.append('name', this.inputName); 
             axios.post('http://localhost:3000/upload',
                     formData, {})
-                .then(function() {
+                .then(() => {
 
                     console.log('SUCCESS!!');
-                    alert('Uploaded')
+                    app.notif.succ = 'uploaded success'
+                
                     this.getAllImages()
                 })
                 .catch(function() {
-                    alert('Fail to upload')
+                    app.notif.fail = 'Fail upload'
                 });
         },
         getAllImages: function(){

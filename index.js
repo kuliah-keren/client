@@ -55,7 +55,6 @@ new Vue({
                 }
             })
             .then((result) => {
-               
                 // console.log(result.data.mata_kuliah);
                 this.resultConvert = result.data.mata_kuliah
             }).catch((err) => {
@@ -63,7 +62,7 @@ new Vue({
                 
             });
         },
-        download(){
+        download(){ 
             const text = this.resultConvert
             text.unshift('Daftar Mata Kuliah \n')
             let newText = text.join('\n')
